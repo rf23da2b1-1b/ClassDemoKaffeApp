@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClassDemoKaffeApp
+﻿namespace ClassDemoKaffeApp
 {
     public class Kunde
     {
         /*
          * Instans felter
          */
+        private int _kundeNummer;
         private string _navn;
         private string _tlf;
 
         /*
          * Properties
          */
+        public int KundeNummer
+        {
+            get { return _kundeNummer; }
+            set { _kundeNummer = value; }
+        }
+
         public string Navn
         {
             get { return _navn; }
@@ -34,18 +35,20 @@ namespace ClassDemoKaffeApp
          */
         public Kunde()
         {
+            _kundeNummer = 0;
             _navn = "";
             _tlf = "";
         }
-        public Kunde(string navn, string tlf)
+        public Kunde(int nr, string navn, string tlf)
         {
+            _kundeNummer = nr;
             _navn = navn;
             _tlf = tlf;
         }
 
         public override string ToString()
         {
-            return $"{{{nameof(Navn)}={Navn}, {nameof(Tlf)}={Tlf}}}";
+            return $"{{{nameof(KundeNummer)}={KundeNummer}, {nameof(Navn)}={Navn}, {nameof(Tlf)}={Tlf}}}";
         }
     }
 }
