@@ -22,6 +22,9 @@ køb1.Kunde.Navn = "Per";
 Console.WriteLine(kunde1);
 
 
+/*
+ * BRUG AF KAFFE LISTE
+ */
 
 KaffeListe kaffeListe = new KaffeListe();
 kaffeListe.Tilføj(kaffe1);
@@ -54,5 +57,30 @@ foreach (Kaffe kaffe in kaffeFraDanmark)
 {
     Console.WriteLine(kaffe);
 }
+
+
+
+/*
+ * BRUG AF KUNDE KATALOG
+ */
+
+KundeKatalog katalog = new KundeKatalog();
+
+katalog.Tilføj(kunde1);
+katalog.Tilføj(new Kunde(22, "Jakob", "44556677"));
+
+Console.WriteLine(katalog);
+
+
+Kunde kunde22 = katalog.HentKunde(22); 
+Console.WriteLine(kunde22);
+
+Console.WriteLine(katalog.HentKunde(222));
+
+Console.WriteLine(katalog.HentKundeUdFraTlf("33445566"));
+
+
+
+
 
 Console.WriteLine(  "SLUT");

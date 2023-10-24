@@ -57,5 +57,19 @@ namespace ClassDemoKaffeApp
             return resultatListe;
         }
 
+        public Kaffe Slet(Kaffe kaffe)
+        {
+            if (_liste.Contains(kaffe))
+            {
+                _liste.Remove(kaffe);
+                return kaffe;
+            }
+
+            // findes ikke
+            return null;
+        }
+
+        
+
     }
 }
