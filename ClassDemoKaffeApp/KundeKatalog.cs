@@ -60,7 +60,12 @@ namespace ClassDemoKaffeApp
             }
             else
             {
-                return null;
+                // opdaget en fejl
+                throw new KeyNotFoundException("kundenummer findes ikke");
+                
+
+
+                //return null;
             }
         }
 
@@ -82,7 +87,7 @@ namespace ClassDemoKaffeApp
 
         public override string ToString()
         {
-            String pænTekst = "[" + String.Join("], [", _katalog.Values) + "]";
+            String pænTekst = String.Join(", ", _katalog.Values);
 
             return $"{{{nameof(Katalog)}={pænTekst}}}";
         }

@@ -13,7 +13,7 @@ namespace ClassDemoKaffeApp
          */
         private string _land;
         private string _sort;
-        private double _pris;
+        private double _pris; // skal være nul eller over
         private string _ristningsgrad;
 
 
@@ -35,7 +35,14 @@ namespace ClassDemoKaffeApp
         public double Pris
         {
             get { return _pris; }
-            set { _pris = value; }
+            set { 
+                if ( !(value >= 0))
+                {
+                    throw new ArgumentException("Pris skal være nul eller positiv men var " + value);
+                }
+
+                _pris = value; 
+            }
         }
         public string Ristningsgrad
         {

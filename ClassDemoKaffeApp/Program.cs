@@ -72,15 +72,52 @@ katalog.Tilføj(new Kunde(22, "Jakob", "44556677"));
 Console.WriteLine(katalog);
 
 
-Kunde kunde22 = katalog.HentKunde(22); 
-Console.WriteLine(kunde22);
+try
+{
+    Kunde kunde22 = katalog.HentKunde(22);
+    Console.WriteLine(kunde22);
+}
+catch (KeyNotFoundException knfe)
+{
+    Console.WriteLine("FEJL: " + knfe.Message);
+}
 
-Console.WriteLine(katalog.HentKunde(222));
+try
+{ // her kan der måske ske en exception
+    Console.WriteLine(katalog.HentKunde(222));
+
+}
+catch(KeyNotFoundException knfe)
+{
+    Console.WriteLine("FEJL: " + knfe.Message);
+}
+catch(Exception e)
+{
+    Console.WriteLine(e.Message);
+}
 
 Console.WriteLine(katalog.HentKundeUdFraTlf("33445566"));
 
 
 
 
+try
+{
+    kaffe1.Pris = 45;
+    kaffe1.Pris = -34;
+}
+catch(ArgumentException ae)
+{
+    Console.WriteLine( ae.Message);
+}
+
+try
+{
+    kaffe2.Pris = -1;
+}
+catch (ArgumentException ae)
+{
+    Console.WriteLine(ae.Message);
+}
 
 Console.WriteLine(  "SLUT");
